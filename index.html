@@ -1,0 +1,104 @@
+08.17 8:47 PM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SnapShop - P9 Wireless Headphones</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+    header { background: #222; color: #fff; text-align: center; padding: 15px; font-size: 20px; }
+    .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);}
+    img { max-width: 100%; border-radius: 10px; }
+    h2 { margin-top: 10px; }
+    .price { font-size: 20px; margin: 10px 0; }
+    .old-price { text-decoration: line-through; color: red; margin-right: 10px; }
+    .new-price { color: green; font-weight: bold; }
+    button { background: #28a745; color: white; padding: 10px 15px; border: none; border-radius: 5px; margin: 10px 0; cursor: pointer; }
+    button:hover { background: #218838; }
+    .hidden { display: none; }
+    form input, form select { width: 100%; padding: 8px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
+    .info { background: #eee; padding: 10px; margin-top: 10px; border-radius: 5px; }
+    footer { text-align: center; font-size: 14px; padding: 10px; margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+<header>SnapShop - P9 Wireless Headphones</header>
+
+<div class="container">
+  <img src="assets/product.jpg" alt="P9 Headphones">
+  <h2>P9 Wireless Over Ear Bluetooth Headset</h2>
+  <p><span class="old-price">₹799</span> <span class="new-price">₹699</span></p>
+  
+  <p><b>Description:</b> Elevate your audio experience with the stylish P9 Wireless Over-Ear Bluetooth Headset.</p>
+  <ul>
+    <li>Battery Charge Time: 1 Hour</li>
+    <li>Bluetooth Version: 5.1, Range: 10m</li>
+    <li>Charging Type: Type-C</li>
+    <li>Color: Silver, Material: ABS Plastic</li>
+    <li>Mic: Yes, Noise Cancelling: No</li>
+    <li>Play Time: 12 Hours</li>
+    <li>Warranty: 1 Month (Carry-In)</li>
+    <li>Country of Origin: India</li>
+  </ul>
+  
+  <button onclick="showPayment()">Buy Now</button>
+  
+  <div id="payment" class="hidden">
+    <h3>Select Payment Method</h3>
+    <button onclick="showCOD()">Cash on Delivery</button>
+    <button onclick="showQR()">Online Payment (QR)</button>
+    
+    <div id="qrBox" class="hidden">
+      <p>Scan to Pay Online:</p>
+      <img src="assets/qr.png" alt="QR Code">
+    </div>
+  </div>
+  
+  <div id="orderForm" class="hidden">
+    <h3>Enter Delivery Details</h3>
+    <form onsubmit="orderPlaced(event)">
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Mobile Number" required>
+      <input type="text" placeholder="Address" required>
+      <input type="text" placeholder="Pincode" required>
+      <input type="text" placeholder="State" required>
+      <button type="submit">Place Order</button>
+    </form>
+  </div>
+  
+  <div id="confirm" class="hidden info">
+    ✅ Thank you! Your order has been placed.  
+    Estimated delivery: 5–6 days.
+  </div>
+  
+  <div class="info">
+    <p> Inquiry: 9167327618</p>
+    <p> Email: kaushalmourya12345@gmail.com</p>
+  </div>
+</div>
+
+<footer>© 2025 SnapShop</footer>
+
+<script>
+  function showPayment() {
+    document.getElementById("payment").classList.remove("hidden");
+  }
+  function showCOD() {
+    document.getElementById("orderForm").classList.remove("hidden");
+  }
+  function showQR() {
+    document.getElementById("qrBox").classList.remove("hidden");
+    document.getElementById("orderForm").classList.remove("hidden");
+  }
+  function orderPlaced(event) {
+    event.preventDefault();
+    document.getElementById("orderForm").classList.add("hidden");
+    document.getElementById("payment").classList.add("hidden");
+    document.getElementById("confirm").classList.remove("hidden");
+  }
+</script>
+
+</body>
+</html>
